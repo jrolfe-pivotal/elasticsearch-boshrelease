@@ -2,4 +2,4 @@
 set -e
 
 unzip $BOSH_COMPILE_TARGET/elasticsearch17/elasticsearch-1.7.3.zip
-cp -a elasticsearch elasticsearch-1.7.3/* $BOSH_INSTALL_TARGET
+cp -a elasticsearch-1.7.3/* $BOSH_INSTALL_TARGET
