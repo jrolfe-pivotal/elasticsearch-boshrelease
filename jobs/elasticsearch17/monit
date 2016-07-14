@@ -1,0 +1,5 @@
+check process elasticsearch
+  with pidfile /var/vcap/sys/run/elasticsearch/elasticsearch.pid
+  start program "/var/vcap/jobs/elasticsearch/bin/elasticsearch_ctl start" with timeout 120 seconds
+  stop program "/var/vcap/jobs/elasticsearch/bin/elasticsearch_ctl stop"
+  group vcap

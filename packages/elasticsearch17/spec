@@ -1,0 +1,7 @@
+---
+name: elasticsearch17
+
+dependencies: []
+
+files:
+- elasticsearch17/elasticsearch-1.7.3.zip
