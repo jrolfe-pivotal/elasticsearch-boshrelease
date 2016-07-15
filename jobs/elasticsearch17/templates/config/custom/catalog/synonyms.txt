@@ -1,0 +1,790 @@
+# blank lines and lines starting with pound are comments.
+
+#Explicit mappings match any token sequence on the LHS of "=>"
+#and replace with all alternatives on the RHS.  These types of mappings
+#ignore the expand parameter in the schema.
+#Examples:
+#i-pod, i pod => ipod,
+#sea biscuit, sea biscit => seabiscuit
+
+#Equivalent synonyms may be separated with commas and give
+#no explicit mapping.  In this case the mapping behavior will
+#be taken from the expand parameter in the schema.  This allows
+#the same synonym file to be used in different synonym handling strategies.
+#Examples:
+
+large, lg, lrg, l
+med, medium, m
+sm, small, s
+xsm, x-small, xsmall
+xlarge, x-large, xl, xlg
+xxlarge, xx-large, xxl, xxlg
+
+glv, glove
+adhsv, adhesive
+
+
+# if expand==true, "ipod, i-pod, i pod" is equivalent
+# to the explicit mapping:
+#ipod, i-pod, i pod => ipod, i-pod, i pod
+# if expand==false, "ipod, i-pod, i pod" is equivalent
+# to the explicit mapping:
+#ipod, i-pod, i pod => ipod
+
+
+# from endeca
+
+10 x 10, 10 x10, 10x 10, 10x10
+11 x 11, 11 x11, 11x 11, 11x11
+12 x 12, 12 x12, 12x 12, 12x12
+2 x 2, 2 x2, 2x 2, 2x2
+3 x 3, 3 x3, 3x 3, 3x3
+4 x 4, 4 x4, 4x 4, 4x4, 4 x 4s, 4x4s
+5 x 5, 5 x5, 5x 5, 5x5
+6 x 6, 6 x6, 6x 6, 6x6
+7 x 7, 7 x7, 7x 7, 7x7
+8 x 8, 8 x8, 8x 8, 8x8
+9 x 9, 9 x9, 9x 9, 9x9
+a1c, glycated hemoglobin , glycosylated hemoglobin, hemoglobin a1c
+abg kit, arterial blood gas kit
+aed, defibrillator, lifepak, zoll
+bone splitter, bone cutter, rongeurs
+ciii, schedule 3
+civ, schedule 4
+cv, schedule 5
+cream, lotion, moisturizer
+gel warmer, lotion warmer
+lubricating, petroleum, vaseline, ky, surgilube, lubricant, lube, lubrication
+nutritional, formula
+poliomyelitis, polio
+tracheostomy, trach
+adhesive spot, adhesive strip, band aid, bandaid
+alcohol, ipa, rubbing alcohol
+applicator, swab
+bag, liner
+blood pressure cuff, blood pressure monitor, bp, bp cuff, sphyg, sphygmometer
+bonnet, cap, head covering
+cc, cubic centimeter, ml
+diaper, undergarment
+ecg, ekg, recording
+extra large, xl
+extra small, xs
+face shield, visor
+feet, foot, ft
+fr, french
+hcg, pregnancy
+hour glass, knuckle
+mg, milligrams
+milliliters, ml
+ounce, oz
+povidone iodine, pvp, pvp-i, povidone-iodine swabstick
+resting electrodes, tab electrodes
+retainer, retention
+self adhesive, self-adhesive
+sharps collector, sharps container
+towelette, wipe
+djo, dj ortho, dj orthopedics, dj
+tympanic, ear, tympanogram
+dressing retainer, dressing retention tape
+digital sphygmomanometer, automatic bp unit
+2x, xx, xxl
+3x, xxx, xxxl
+urine cup, specimen cup, specimen container
+3cc, 3 cc, 3ml, 3 ml
+5cc, 5 cc, 5ml, 5 ml
+6cc, 6 cc, 6ml, 6 ml
+0.3cc, .3cc, 0.3 cc, .3 cc, 0.3ml, .3ml, 0.3 ml, .3 ml
+0.5cc, 0.5 cc, 0.5ml, 0.5 ml, .5cc, .5 cc, .5ml, .5 ml
+1cc, 1 cc, 1ml, 1 ml
+10cc, 10 cc, 10 ml, 10ml
+12 cc, 12cc, 12ml, 12 ml
+7 cc, 7cc, 7ml, 7 ml
+70cc, 70 cc, 70ml, 70 ml
+1000cc, 1000 cc, 1000ml, 1000 ml
+1500cc, 1500 cc, 1500 ml, 1500ml
+200cc, 200 cc, 200ml, 200 ml
+2000cc, 2000 cc, 2000ml, 2000 ml
+230cc, 230 cc, 230ml, 230 ml
+350cc, 350 cc, 350ml, 350 ml
+100cc, 100 cc, 100 ml, 100ml
+140cc, 140 cc, 140ml, 140 ml
+150cc, 150 cc, 150ml, 150 ml
+2cc, 2 cc, 2ml, 2 ml
+20cc, 20 cc, 20ml, 20 ml
+25cc, 25 cc, 25ml, 25 ml
+30cc, 30 cc, 30ml, 30 ml
+35cc, 35 cc, 35ml, 35 ml
+4cc, 4 cc, 4ml, 4 ml
+50cc, 50 cc, 50ml, 50 ml
+400ml, 400 ml, 400cc, 400 cc
+500cc, 500 cc, 500ml, 500 ml
+550cc, 550ml, 550 cc, 550 ml
+600cc, 600 cc, 600ml, 600 ml
+730cc, 730 cc, 730 ml, 730ml
+750cc, 750 cc, 750ml, 750 ml
+800cc, 800 cc, 800ml, 800 ml
+900cc, 900 cc, 900ml, 900 ml
+950cc, 950 cc, 950 ml, 950ml
+16g, 16ga, 16 g, 16 ga, 16 gauge, 16gauge
+17g, 17ga, 17gauge, 17 g, 17 ga, 17 gauge
+18g, 18 g, 18 ga, 18ga, 18gauge, 18 guage, 18 gauge
+19g, 19 g, 19ga, 19 ga, 19 gauge, 19guage, 19gauge
+20g, 20 g, 20 ga, 20ga, 20 gauge, 20guage
+21g, 21 g, 21ga, 21 ga, 21 gauge, 21gauge
+22g, 22ga, 22 g, 22 ga, 22 gauge, 22gauge
+23g, 23 g, 23ga, 23 ga, 23 gauge, 23guage
+24g, 24 g, 24ga, 24 ga, 24gauge, 24 gauge
+25g, 25 g, 25 ga, 25ga, 25gauge, 25 gauge
+26g, 26ga, 26gauge, 26 g, 26 gauge, 26 ga
+27g, 27ga, 27gauge, 27 gauge, 27 ga, 27 g
+28g, 28ga, 28gauge, 28 g, 28 ga, 28 gauge
+29g, 29ga, 29gauge, 29 g, 29 ga, 29 gauge
+30g, 30ga, 30gauge, 30 g, 30 ga, 30 gauge
+31g, 31ga, 31gauge, 31 g, 31 ga, 31 gauge
+glove str, sterile glove, glove st
+forcep hemo, hemostat forcep
+toilet tissue, toilet paper
+blood glucose meter, glucose meter, glucometer
+tuberculin, tb syr, tuberculin syringe
+swabstick, swabsticks, swab stick
+urinary catheter, indwelling catheter
+immunization, vaccine
+nebulizer tubing, aerosol tubing
+sm, small
+large, lg
+tube guaze, retention bandage, tubigrip
+diabetic, diabetes
+philly collar, cervical collar
+character, cartoon, novelty
+ua, urinalysis
+safetyglide, safety glide
+bandaids, adhesive strip, adhesive bandage, bandaid, bandaides, band-aid, band-aids, bandaide
+saw, cutter
+cast pad, cast padding
+c collar, cervical collar, c-collar
+glut, glut solution, glutaraldehyde, instrument disinfectant, glutaraldehyde plus
+toradol, ketorolac
+medicine bottle, prescription vial, prescription bottle
+histofreeze, cryosurgical system, liquid nitrogen sprayer, wart remover, histo
+urine collector, speciman container, urine container
+stirrup splint, stirrup support
+splint, immobilizer
+mayo stand, instrument stand
+%, percent
+mck, mgm, mckesson
+child bandage, character strip, kids bandage
+emergency carts, crash carts
+brief, pant, diaper
+cadaver, post mortem
+bandage, strip
+draw chair, blood drawing chair, phlebotomy chair
+15g, 15 ga, 15 g, 15ga, 15 gauge, 15gauge
+blunt needle, cannula
+kit, tray
+chucks, chux, underpad, chux pads, blue chucks, blue chux, bluechux, chuxs
+anesthesia, breathing
+betadine, povidone iodine
+gel, jelly
+evac, evacuation, suction device
+o2, oxy, oxygen
+g tube, g-tube, gastro tube, gastrostomy feeding tube
+dex, dextromethorphan, dextrose, dext
+oin, oint, ointment
+recording, printer
+tube feeding, enteral
+caps, capsule
+exam, examination
+amox, amoxicillin
+admin, administration
+asp, asprin
+caf, caff, caffeine, bozo
+light source, illumination system
+specula, speculum
+chemo, chemotherapy
+caps, capsule
+draw, drawing
+emuls, emulsion
+ext, extension
+gauz, gauze
+hep lock, heparin lock
+hyd, hydro, hydrocortisone
+hypo, hypodermic
+imm, immobilize
+flu, influenza
+irr, irrigation
+lido, lidocaine, lidocaine hci, lidoca, lidocaine hydrochloride
+cardio, cardiology
+med, medium
+oph, opht, ophth, opth, opthalmic
+prof, professional
+st, str, ster, sterile
+stop, stopper
+tex, textured
+vac, vacc, vaccine
+gram, g, gm
+ecg pad, ekg pad, monitoring electrode
+boutonniere splint, spring finger support
+dipper, test strip
+combine, general purpose dressing
+dipper, test strip
+wall basket, blood pressure unit basket
+woods lamp, woods light, ultraviolet light
+mannequin, manakin, manikin
+ice bag, ice pack, instant cold compress
+cath, catheter
+decadran, dexamethasone
+chartholder, chart holder
+endometrial cell sampler, endometrial curette
+ear speculum, otoscope speculum, ear spec
+urine dipstick, urine test strip
+otoscope covers, ear speculum
+reflex hammer, percussion hammer, neurological hammer
+csr wrap, sterilization wrap
+carpal tunnel support, wrist support, carpal tunnel split
+identification band, id band
+dispersive electrode, gounding pad, ground pad
+stadiometer, height measuring rod
+stack splint, stax splint
+stax, stack
+ted, anti-embolism
+paper shorts, disposable shorts
+hep b, hepatitis b
+hep a, hepatitis a
+endometrial pipette, endometrial curette
+kling, retainer, conforming, cling
+paper shorts, disposable shorts
+headlamp, headlight
+dexamethasone, dexa, decadran
+inkjet, ink jet
+hod28202, hod-28202, ave5160, ave-5160
+velcro, hook and loop
+cotton tipped applicator, swabstick
+algerbrush, burr
+60 cc, 60cc, 60ml, 60 ml
+underpant, stretch brief
+christmas tree, barbed, tubing connector, nipple
+allegience, cardinal, cardinal health
+witches hat, urine hat, specimen container, specimen collector
+garbage, trash
+knee sleeve, knee support
+ankle sleeve, ankle support
+cavicide, cavi, cavicide wipes, caviwipes1
+ear wash, ear lavage
+ted hose, t.e.d
+cysto tubing, irrigation tubing
+iodoform gauze, iodoform packing
+child, childrens, junior, kid
+postits, post it
+vaccutainer, vaccutainers
+hat, cap
+suture remover, suture removal kit
+cautery pen, surgical cautery
+becton dickinson, bd
+soap, detergent
+steristrip, steri strips, steri_strip, steri-strip, skin closure, steri-strips
+anal scopes, anoscopes
+ace bandage, compression bandage
+endotrach, endotracheal
+drapesheet, drape sheet
+depo medrol, depo-medrol, depomedrol, depo med, depomed
+trash, trash can
+protective underwear, pull on, uwear, u wear, pull-on, underwear
+selfseal, self-seal
+vaginal speculum, vag spec, pap light
+normal saline, sodium chloride
+j & j, j&j, johnson & johnson, johnson&johnson, johnson and johnson
+kendall, covidien
+depo provera, depo-provera, depoprovera
+solu medrol, solu-medrol, solumedrol, solumed
+sani wipe, sani cloth, sani wipes, saniwipes, saniwipe, sani-wipe, sani-wipes, sanitary wipes, sani-cloths
+q tip, q-tip, cotton applicator, qtip, q-tips, q tips
+alcohol prep, prep pad, alcohol pad, alcohol prep pad
+urine strainer, urine strainers, calculi strainers, calculi strainer
+stadol, butorphanol tartrate
+medroxy, medroxyprogesterone
+solu cortef, solu-cortef, solucortef
+impact gloves, anti-vibration gloves, anti vibration gloves
+open finger glove, half finger glove, fingerless glove, half-finger glove, open-finger glove
+cough drops, lozenge, lozenges, cough drop
+albuterol, inhaler, albuterol inhaler
+laxative, goodsense, clearlax
+cough suppressant, robitussin
+oscal, os-cal, calcium
+trandate, labetalol, labetalol hci
+glove box dispenser, glove box holder
+odt, orally disintegrating, rapid dissolve
+body bag, post mortem bag
+escherichia coli, e-coli, e.coli
+flip-top, flip top, fliptop
+skin closure strip, wound closure strip
+tylenol, acetaminophen
+gripper socks, slipper socks
+geri tussin, geri-tussin, cough suppressant
+jevity 10, jevity
+pepto bismol, pepto-bismol
+wooden spoons, wooden spoon, wood spoon
+voltaren, diclofenac
+prolia, osteoporosis, denosumab
+lacrilube, lacri-lube, lacri lube
+blue underpads, underpads, blue underpad, blue pads
+tidy towels, tidi towels, tidi towel
+bicitra, cytra-2, oracit
+whiteout, white out, correction fluid
+benadryl, benadryl liquid, liquid benadryl
+providone, povidone
+rapid rhino, rhino rocket, nasal packing, nasal splint
+urine stick, urine sticks, urine test strip, urinalysis test strip, urine stix
+adult gowns, adult gown, gown, gowns
+kytril, granisetron
+room spray, air freshener, odor eliminator, room deodorizer
+kids stickers, childrens stickers, stickers
+infant tylenol, infant pain reliever
+pyridium, phenazopyridine
+nasal trumpet, nasopharyngeal airway
+nail elevator, nasal elevator, septum elevator
+delta dry, cast padding
+ambubag, ambu bag, ambu
+chloroprene, neoprene
+ammonia inhalent, smelling salts, stimulant
+donut cushion, ring seat, ring seat cushion, invalid cushion
+nonsteroidal anti-inflammatory agent, nsaid
+pill cutter, pill splitter
+biohazard bag, bio bag, bio bags, biohazard bags
+heel-float, heel protector boot, heel float
+tuberculosis, tuberculin, tuberculin vaccine
+nebulizer, nebulizer machine
+birth control, contraceptive, contraceptives
+pull up, pull ups, diaper, diapers
+naloxone hydrochloride, naloxone
+engerix-b, engerix b
+obstetrical towelettes, ob towelettes, ob wipes, obstetrical wipe, obstetrical wipes
+childrens motrin, children's motrin, motrin, ibuprofen
+injection sodium chloride, injectable sodium chloride
+baby aspirin, children's pain relief
+canned air, compressed gas duster, air duster
+cyclesure, indicators
+emla cream, emla, lidocaine/prilocaine
+half gown, gowns, gown
+saline lock, luer lock, heparin lock
+dum dums, suckers, dum dum pops
+flu-glo, ful-glo, flu glo, ful glo
+portable otoscope, otoscope
+triple anti, triple antibiotic
+combitip, combitips
+powder, pdr
+bacitracin, bacitracin packets, bacitracin packet, bacitra
+cyanoco, cyanocobalamin, vitamin b12, cyanoc, cyanocob, cyanocobal
+stool card, fecal occult blood test, stool cards
+tb vaccine, tuberculin purified protein derivative
+ibuprofen liquid, ibuprofen, ibupro, liquid ibuprofen
+electrocautery, cautery, cauterizer
+lasix iv, furosemide
+electrodes, electrode, ecg sticker, ekg sticker
+bunny suit, coverall, coveralls
+dermablade, derma blade, razor, dermablades
+podocon, podophyllum
+thermoscan pc200, thermoscan
+diphenhy, diphenhydramine
+flexeril, cyclobenzaprine
+methergine, methylergonovine
+spore testing, spore, spore test
+t-dap, tdap
+colored coban, coban, coban tape
+hand mirror, mirror
+height measurement, height measuring devices
+neosporin packets, neosporin
+tetracaine hydrochloride, tetracaine
+gastroview, md-gastroview, diatrizoate meglumine and diatrizoate sodium solution
+sterilizer tape, sterilization tape, indicator tape
+ear piercing, ear piercer
+paper capes, exam cape, exam capes
+pontocaine, tetracaine
+sterilizing pouch, sterilization pouch
+cholestech paper, cholestech
+infant diapers, diapers
+nitrate sticks, nitrate stick, silver nitrate
+urine wipes, baby wipes, personal wipes
+cortisone cream, cortisone
+fetanyl iv, fetanyl
+hemoglobin machine, hemoglobin analyzer
+hydrogen perox, hydrogen peroxide
+nitrate gloves, nitrile gloves
+persantine, dipyridamole
+vaginal wipes, personal wipes
+zymar, zymaxid, gatifloxacin
+multistick, multistix
+nitropaste, nitro paste, nitro-bid, nitro bid
+lactate ringers, lactated ringer, lactated ringers, ringers lactate
+tpn container, infusion bag, tpn containers, infusion bags
+refrigerator, refridgerator
+rocephin 250, rocephin, rocephin 250mg
+amphadase, hyaluronidase
+proparacaine hydrochloride, proparacaine
+sterile 4x4s, sterile gauze
+lasix injection, lasix iv
+liquid ibuprofen, ibuprofen liquid
+pink basin, basin
+succin, succinate
+circle bandage, spot bandage
+d5lr, 5% lactated ringers
+geri-mox, antacid, geri mox
+infant ibuprofen, ibuprofen
+metoclo, metoclopramide
+monospot, mononucleosis test
+numbing spray, oral anesthetics
+fish oil, omega 3, omega-3
+scalpel, scapel
+wheelchair, wheel chair, wheelchairs, wheel chairs
+neosporin, triple antibiotic
+armboard, arm board
+d5w, dextrose 525 water, dextrose, 50dextrose
+speed clean, speedclean, speed-clean
+saline bullet, sterile saline solution, saline ampules
+floseal, hemostasis
+ceftiaxone, ceftriaxone
+sweet ease, sweet-ease, sweetease
+nexplanon, contraceptives, contraceptive
+miochol e, miochol-e, miochole
+ciproflaxin, ciprofloxacin, cipro
+fentanyl iv, fentanyl
+goniosol, hydroxypropyl methylcellulose
+inapsine, droperidol
+macrobid, nitrofurantoin
+medi aire, medi-aire, mediaire
+testerone, testosterone
+tb, tuberculin, tuberculin solution
+bicillin cr, bicillin
+diaper wipe, diaper wipes, baby wipe, baby wipes
+instant glucose, glucose supplement
+microfilament, sensory test, sensory testing
+bandaid, pediatric bandaid, bandaids, pediatric bandaids
+cyanob, cyanobalamin, cyanocobalamin
+fracture pan, fracture bedpan
+plastic basket, plastic bin, plastic bins
+tonopen, tono-pen
+uterine explora, curette, curettes
+mask, yellow mask
+hemostatic agent, quick clot, quickclot
+addipak, inhalation solution
+stat lock, statlock, stat locks, statlocks
+duo neb, duoneb, albuterol and ipratropium, ipratropium
+toradol, toradol 60, ketorolac tromethamine
+alere pt/inr, alere inratio, inratio, alere, alere a1c
+d5lr, potassium chloride
+mcv4, meningitis
+iodine stick, iodine swabstick, iodine
+isovue m, isovue, isovue m-300
+roceph, rocephin
+betameth, betamethasone
+synvisc one, synvisc-one
+pill bottle, prescription bottle
+pronestyl, procainamide
+tubersol aplisol, tubersol, aplisol
+dextrose2525-water, dextrose water
+fob, ifobt, ifob, .
+flexi-set, flexi set, flexiset
+exam table paper, table paper
+hygrometer, humidity monitor
+end tidal, nasal cannula etco2 sampling / simultaneous o2 airlife adult curved, tapered, non-flared
+end tidal, sampling line airlife etco2 10 foot
+end tidal, nasal cannula airlife etco2 pediatric curved, tapered, non-flared
+end tidal, nasal cannula airlife etco2 adult curved, tapered, non-flared
+end tidal co2, nasal cannula etco2 sampling / simultaneous 02 airlife adult curved, tapered, non-flared
+end tidal co2, sampling line airlife etco2 10 foot
+end tidal co2, nasal cannula airlife etco2 pediatric curved, tapered, non-flared
+nasal cannula airlife etco2 adult curved, tapered, non-flared, end tidal co2
+end tidal co2, nasal cannula airlife etco2 adult curved, tapered, non-flared
+etco2, nasal cannula etco2 sampling / simultaneous o2 airlife adult curved, tapered, non-flared
+etco2, sampling line airlife etco2 10 foot
+etco2, nasal cannula airlife etco2 pediatric curved, tapered, non-flared
+etco2, nasal cannula airlife etco2 adult curved, tapered, non-flared
+capnography, nasal cannula etco2 sampling / simultaneous o2 airlife adult curved, tapered, non-flared
+capnography, sampling line airlife etco2 10 foot
+capnography, nasal cannula airlife etco2 adult curved, tapered, non-flared, 2802m-10
+capnography, nasal cannula airlife etco2 pediatric curved, tapered, non-flared, 2802f-10
+surgical sleeve, gown sleeve, arm protector, arm protection, leg protector, leg protection
+eczema treatment, ad rescue wear
+wet wrap therapy, ad rescue wear
+dry wrap therapy, ad rescue wear
+vaniply, ad rescue wear
+atopic dermatitis, ad rescue wear
+hairbrush, hair brush
+abdominal pads, abd pads
+abduction, abduct
+skin adhesive, dermabond
+american proficiency institute, api
+anoscope, anal scope
+barf bag, emesis bag
+bootie, shoe cover
+chapstick, lip balm
+clorox, bleach
+clot activator, clot act
+colace, diocto syrup, stool softener
+autoclave tape, indicator tape, steam indicator tape
+bathing system, comfort bath, bathing cloth, personal wipes
+prostat, pro-stat, pro stat
+compression bandage, elastic bandage
+compression bandage, conforming bandage
+compression bandage, cohesive bandage
+compression bandage, tubular bandage
+donut cushion, invalid ring, invalid cushion
+paper gown, exam gown, tissue gown
+depo-testosterone, depo testosterone, depotestosterone
+methylprednisone, methylprednisolone
+nurse stethoscope, nurses stethoscope, single sided chestpiece – diaphragm only
+newborn, neonate, neonatal
+not made with natural rubber latex, "latex free"
+light, lite
+eo, ethylene oxide
+thickening, thickener, thickened
+nonsterile, unsterile, non sterile, un sterile
+nausea relief, motion sickness
+inco, incontinence
+powered toothbrush, electric toothbrush
+k cups, k-cups, k cup, k-cup
+green mountain, emeril's, gloria jean's, the original donut shop, coffee people, green mountain coffee, gmt
+bactrim, sulfamethoxazole
+robitussin, tussin
+robitussin dm, tussin dm
+benadryl, diphendydramine, diphenhydramine hcl
+debrox, ear wax removal
+loperamide, anti diarhheal, anti-diarhheal, loperamide hydrochloride, loperamide hcl
+pitcher, water pitcher
+vasostrict, vasopressin, pitressin
+epi, epineph, epinephrine
+cantharidin, cantharone, wart remover, wart removal
+hytrin, terazosin
+suppository, supp
+verruca-freeze, verruca freeze, cryosurgical system, cryosurgical replacement canister
+saline bags, iv solution
+rocephin, ceftriaxone sodium, ceftriaxone
+cardex, cardex ag, electrodes
+exam towel, procedure towel
+bed paper, table paper
+krimped gauze, gauze
+ear cleaner, ear care
+disposable ear tips, ear tips, disposable eartips, eartips
+decadron, dexamethasone
+citrifoam, disinfectant
+breast gown, gown
+hibacleanse, hibiclens
+maxicide, disinfectant
+versed, midazolam
+gauze 4x4, gauge 4x4
+depo test, depotestosterone, depo-testosterone, depotest
+ibupr, ibuprofen
+basin, large basin
+testopel, testosterone
+urine machine, urine analyzer
+ethicon sutures, sutures
+short gown, gown
+quantiferon, tuberculosis diagnostic antigen, tb test
+curlex, kerlix
+non latex gloves, nitrile
+table paper, table pap
+methylprednis, methylprednisolone
+medflat, medflats
+methylprednis, methylprednisone
+medflat, medflats
+ancef, cefazolin, cefa, cephazolin, cepha, cefaz, cephaz
+vein finder, accuvein
+hypercare, drysol
+silver sulfa, silver sulfadiazine
+glute out, glutaraldehyde
+tisseel, hemostasis
+bactrim, bactrim ds
+chlorahexadine, chg, chlorhexidine
+t-spray, disinfectant, disinfectants
+flu shot, flu
+glucotrol aq, glucotrol-aq
+ear drops, auralgan
+aristospan, triamcinolone
+juvederm, restylane
+chemo rated, chemo tested
+tri-level, tri level, 3-level, 3 level, 3-levels, 3 levels
+saline injection, injectable saline
+adenosine, adenosine 6 mg
+asclera, sclerosing agent, polidocanol
+injectable saline, saline injection
+phisohex, surgical scrub
+abjt => abboject syringe
+adp => adapter
+bss => balanced salt solution
+bulb => lamp
+cject => carpuject syringe
+cod => codeine
+compression therapy => dvt therapy
+ds => double strength
+er => extended release
+gls => glass
+gluc => glucose
+hc => hydrocortisone
+hd => high density
+innovative products unlimited => ipu
+ll => luer lock
+lor => loss of resistance
+ls => lifeshield syringe
+lap belt => wheelchair safety belt
+mdi => metered dose inhaler
+meq => milliequivalent
+mj => min-i-jet syringe
+na => napsylate
+nacl => normal saline, sodium chloride
+pab => partial additive bag
+pdp => pre-filled disposable pipette
+pds => powder for solution
+pfs => pre-filled syringe
+phenob => phenobarbital
+phos => phosphate
+poly b => polymer bag
+recon => reconstituted
+rtm => ready-to-mix
+sod => sodium
+sr => slow release
+span caps => sustained release capsule
+supplement => enteral
+tox => toxoids
+tongue blade => tongue depressors
+ud => unit dose
+xr => extended release
+bp => blood pressure
+cardiac => cardiology
+cobbler => bib
+duck bill => pouch style
+e vac => suction device
+enteral => oral supplement
+hypothermia blanket => forced air warming blanket, forced water warming blanket
+j tube => jejunostomy feeding tube
+limb holder => restraint
+ng tube => nasogastric feeding tube
+ns => nonsterile
+pdi => professional disposables
+pf => powder free, powder-free
+proctoswab => 16 inch swab
+s vac => suction device
+sidekick => 528497
+syr => syringe
+truetrack => 470689, 470690, 470693, 470695, 470696
+tung blade => tongue depressor
+vac tube => vacutainer tube
+lap sponge => laparotomy sponge
+radiopaque => x-ray detecable sponge
+cravat => triangular bandage
+ltx => latex
+gauze roll => conforming stretch bandage
+bandage roll => conforming stretch bandage
+nipmed => nipro medical
+knee imm => knee immobilizer
+ken 4x => kendall 4x4
+gown, surg => surgical gown
+surg gown => surgical gown
+dial corp => dial
+circuit  ped => breathing circuit, ventilator circuit
+elastic bandage => ace bandage, ace wrap
+tb => tuberculin
+critikon => ge medical
+nerve stimulator => pens machine, electrotherapy
+tracheal => tracheostomy
+puritan bennet => mallinckrodt
+packing strip => wound packing
+digit => knuckle
+dynjp => procedure drape, procedure sheet, staff gown
+cath angio => angio cath
+interlink => administration set, extension set
+tape identification => instrument tape
+syringe tub => tuberculin syringe
+sani => sanitizer, sani cloth
+o2 connecting tubing => oxygen tubing
+glucometer => blood glucose meter
+germicide => disinfectant
+tube => tubular, roll
+interlink system => primary administration sets
+injection site => administration set
+wrap => bandage
+sani w => equipment wipe, antiseptic hand wipe
+pneum => pneumovax, pneumatic
+nonabsorbable suture => ethibond excel polyester, ethilon nylon, mersilene polyester, nurolon nylon, prolene polypropylene, perma-hand silk, stainless steel suture
+luki => mucus specimen trap
+butterfly => infusion set, skin closure
+dtap => infanrix
+foot stool => stool
+gyn pack => ob pack
+ultrasound product => doppler
+wet wipe => pre-moistened wipe
+waterless => no-rinse
+magni-focuser => optivisor
+texas => male
+swab => prep pad
+urine dip => urine test strip
+inhalent => ampule
+1mm => 1 mm
+2mm => 2 mm
+3mm => 3 mm
+4mm => 4 mm
+5mm => 5 mm
+6mm => 6 mm
+7mm => 7 mm
+8mm => 8 mm
+9mm => 9 mm
+10mm => 10 mm
+ppe => personal protection
+pulse ox => pulse oximeter
+stack splint => stax splint
+armband => identification band
+i.d. band => identification band
+75-102 => 49176
+hurricane => hurricaine
+nubain => nalbuphine hcl
+rhogam => hyperrho
+lp kit => lumbar puncture
+bio glo => fluorescein strips
+fluori => fluorescein
+wa => welch allyn
+casework => storage cabinets
+hearing test => audiometer
+sphyg => blood pressure unit
+fluor strip => fluorescein sodium test strips
+656 => 6561321139
+styro => styrofoam
+foam => styrofoam
+condom cath => male external catheter
+condom catheter => male external catheter
+colostomy bag => colostomy pouch
+cavi-wipes => caviwipes
+cavi wipes => caviwipes
+sudafed => allergy relief
+mmr => measles, mmr vaccine
+ondan => ondansetron
+ak dilate => ak-dilate
+ceftria => ceftriaxone
+childrens benadryl => benadryl
+saf gel => saf-gel, alginates, alginate, safgel
+racepinephrine => racepinephrine hci, inhalation solution
+ciprofloxin => ciprofloxacin
+ful glo => ful-glo
+nitro bid => nitro-bid
+ceftri => ceftriaxone
+depo estradiol => depo-estradiol
+nitro tabs => nitroglycerin
+nitroquick => nitroglycerin
+pregnacy test => pregnancy test
+skin glue => skin adhesive
+exparel => bupivacaine
+hgba1c => hba1c
+lidocaine1 => lidocaine 1%, lidocaine1%
+bupivacainehcl2fpf => bupivacaine
+fentanylcitrate2fpf => fentanyl citrate
+lidocaine injectable => lidocaine injection
+acetaminophen => apap
+miralax => polyethylene glycol
+saline lock => saline prefilled syringe
+bacteriostatic saline => bacteriostatic sodium chloride
+filtered needles => medication transfer needle, admix needle
+ketorolac 60 => ketorolac
+canthacur => wart removal, wart remover
+implanon => contraceptives, contraceptive
+ez io => intraosseous infusion system
+kefzol => cefazolin
+cryo => cryotherapy, cryosurgical
+germ => germicidal
+honey => medihoney, medi honey

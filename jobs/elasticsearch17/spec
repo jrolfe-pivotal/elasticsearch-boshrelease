@@ -7,6 +7,8 @@ templates:
   bin/elasticsearch_ctl: bin/elasticsearch_ctl
   config/config.yml.erb: config/elasticsearch.yml
   config/logging.yml.erb: config/logging.yml
+  config/custom/catalog/synonyms.txt: config/custom/catalog/synonyms.txt
+  config/custom/catalog/dimensions.txt: config/custom/catalog/dimensions.txt
   data/properties.sh.erb: data/properties.sh
   helpers/ctl_setup.sh: helpers/ctl_setup.sh
   helpers/ctl_utils.sh: helpers/ctl_utils.sh

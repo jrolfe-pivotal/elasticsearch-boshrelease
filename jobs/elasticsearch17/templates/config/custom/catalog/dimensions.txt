@@ -1,0 +1,15 @@
+fr
+in
+lb
+ft
+cc
+cm
+oz
+ml
+size
+mm
+mil
+inch
+ml
+foot
+lbs
