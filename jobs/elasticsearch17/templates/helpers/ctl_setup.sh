@@ -72,5 +72,3 @@ fi
 export PIDFILE=$RUN_DIR/$JOB_NAME.pid
 
 echo '$PATH' $PATH
-Contact GitHub API Training Shop Blog About
-

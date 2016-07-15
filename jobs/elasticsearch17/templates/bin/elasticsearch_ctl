@@ -4,7 +4,7 @@ set -e # exit immediately if a simple command exits with a non-zero status
 set -u # report the usage of uninitialized variables
 
 # Setup env vars and folders for the webapp_ctl script
-source /var/vcap/jobs/elasticsearch/helpers/ctl_setup.sh 'elasticsearch'
+source /var/vcap/jobs/elasticsearch17/helpers/ctl_setup.sh 'elasticsearch17'
 
 export PORT=${PORT:-5000}
 export LANG=en_US.UTF-8
@@ -18,7 +18,7 @@ export ES_HEAP_SIZE=$((( $( cat /proc/meminfo | grep MemTotal | awk '{ print $2 
 <% end %>
 
 
-PLUGIN_SCRIPTS_DIR=/var/vcap/data/elasticsearch/plugin-scripts
+PLUGIN_SCRIPTS_DIR=/var/vcap/data/elasticsearch17/plugin-scripts
 
 case $1 in
 
@@ -29,10 +29,10 @@ case $1 in
     # lock while we update plugins and run drain
     echo "$$" > "$PIDFILE-init"
 
-    mkdir -p /var/vcap/packages/elasticsearch/plugins
+    mkdir -p /var/vcap/packages/elasticsearch17/plugins
 
     # install plugins
-    rm -rf /var/vcap/packages/elasticsearch/plugins/*
+    rm -rf /var/vcap/packages/elasticsearch17/plugins/*
 
     # install kopf as it is always packaged with the elasticsearch job
     #/var/vcap/packages/elasticsearch/bin/plugin install file:///var/vcap/packages/elasticsearch-plugins-kopf/elasticsearch-kopf.zip
@@ -40,9 +40,9 @@ case $1 in
     # install user defined plugins
     <% p("elasticsearch.plugins").each do |plugin| _, path = plugin.first %>
       <% if path.start_with? '/var/vcap' %>
-        /var/vcap/packages/elasticsearch/bin/plugin install "file://<%= path %>"
+        /var/vcap/packages/elasticsearch17/bin/plugin install "file://<%= path %>"
       <% else %>
-        /var/vcap/packages/elasticsearch/bin/plugin install "<%= path %>"
+        /var/vcap/packages/elasticsearch17/bin/plugin install "<%= path %>"
       <% end %>
     <% end %>
 
@@ -56,11 +56,11 @@ case $1 in
     chown -R vcap:vcap $STORE_DIR $LOG_DIR $RUN_DIR $PLUGIN_SCRIPTS_DIR
 
     # ES2.0 deprcated -Des.config and insists on having the config file under ES_HOME/config
-    cp --remove-destination $JOB_DIR/config/elasticsearch.yml /var/vcap/packages/elasticsearch/config
+    cp --remove-destination $JOB_DIR/config/elasticsearch.yml /var/vcap/packages/elasticsearch17/config
 
-    chpst -u vcap:vcap /var/vcap/packages/elasticsearch/bin/elasticsearch \
+    chpst -u vcap:vcap /var/vcap/packages/elasticsearch17/bin/elasticsearch \
          -p ${PIDFILE} \
-         --config=/var/vcap/packages/elasticsearch/config/elasticsearch.yml
+         --config=/var/vcap/packages/elasticsearch17/config/elasticsearch.yml
          --XX:HeapDumpPath=${TMPDIR}/heap-dump/ \
          <%= p("elasticsearch.exec.options", []).join(' ') %> \
          >>$LOG_DIR/$JOB_NAME.stdout.log \
